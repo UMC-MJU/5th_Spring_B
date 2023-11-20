@@ -1,9 +1,10 @@
 package week7.api.domain;
 
 import javax.persistence.Embeddable;
+import week7.api.domain.common.BaseEntity;
 
 @Embeddable
-public class Address {
+public class Address extends BaseEntity {
 
     private String province;    // 경기도, 강원도 등
     private String city; // 용인시, 수원시 등

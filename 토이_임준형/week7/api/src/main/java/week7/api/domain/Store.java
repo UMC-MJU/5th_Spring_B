@@ -9,13 +9,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import week7.api.domain.common.BaseEntity;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class Store {
+public class Store extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -17,15 +17,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class ReviewImageUrl {
+public class Food {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "review_image_url_id")
-    private Review review;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
-    private String imageUrl;
+    private String name;
 }

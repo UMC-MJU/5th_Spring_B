@@ -29,4 +29,9 @@ public class Food extends BaseEntity {
     private Member member;
 
     private String name;
+
+    public void mappingMember(Member member) {
+        this.member = member;
+        member.getFoodList().add(this);
+    }
 }

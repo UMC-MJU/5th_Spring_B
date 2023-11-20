@@ -38,4 +38,14 @@ public class Review {
 
     @OneToMany(mappedBy = "review")
     private List<ImageUrl> imageUrlList = new ArrayList<>();
+
+    public void mappingMember(Member member) {
+        this.member = member;
+        member.getReviewList().add(this);
+    }
+
+    public void mappingStore(Store store) {
+        this.store = store;
+        store.getReviewList().add(this);
+    }
 }

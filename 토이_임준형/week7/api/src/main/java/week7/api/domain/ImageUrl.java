@@ -29,4 +29,9 @@ public class ImageUrl extends BaseEntity {
     private Review review;
 
     private String imageUrl;
+
+    public void mappingReview(Review review) {
+        this.review = review;
+        review.getImageUrlList().add(this);
+    }
 }

@@ -1,6 +1,7 @@
 package umc.study.domain;
 
 import lombok.*;
+import lombok.extern.java.Log;
 import umc.study.domain.common.BaseEntity;
 import umc.study.domain.mapping.MemberMission;
 

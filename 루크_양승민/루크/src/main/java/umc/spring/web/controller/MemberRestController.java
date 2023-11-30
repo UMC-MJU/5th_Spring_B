@@ -9,8 +9,8 @@ import umc.spring.apiPayload.ApiResponse;
 import umc.spring.converter.MemberConverter;
 import umc.spring.domain.Member;
 import umc.spring.service.MemberService.MemberCommandService;
-import umc.spring.web.dto.MemberRequest;
-import umc.spring.web.dto.MemberResponse;
+import umc.spring.web.dto.Member.MemberRequest;
+import umc.spring.web.dto.Member.MemberResponse;
 
 @RestController
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package umc.spring.web.dto;
+package umc.spring.web.dto.Member;
 
 import lombok.Getter;
 import umc.spring.validation.annotation.ExistCategories;
@@ -13,9 +13,11 @@ public class MemberRequest {
     @Getter
     public static class JoinDto{
         @NotBlank
-        String name;
+        String username;
         @NotNull
         Integer gender;
+        @NotNull
+        Integer age;
         @NotNull
         Integer birthYear;
         @NotNull

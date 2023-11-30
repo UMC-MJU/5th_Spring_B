@@ -2,8 +2,8 @@ package umc.spring.converter;
 
 import umc.spring.domain.Member;
 import umc.spring.domain.enums.Gender;
-import umc.spring.web.dto.MemberRequest;
-import umc.spring.web.dto.MemberResponse;
+import umc.spring.web.dto.Member.MemberRequest;
+import umc.spring.web.dto.Member.MemberResponse;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

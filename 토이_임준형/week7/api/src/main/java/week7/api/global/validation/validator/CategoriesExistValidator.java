@@ -5,7 +5,7 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import week7.api.domain.food.repository.FoodRepository;
+import week7.api.domain.food.service.FoodService;
 import week7.api.global.code.status.ErrorStatus;
 import week7.api.global.validation.anotation.ExistCategories;
 
@@ -13,7 +13,7 @@ import week7.api.global.validation.anotation.ExistCategories;
 @RequiredArgsConstructor
 public class CategoriesExistValidator implements ConstraintValidator<ExistCategories, List<Long>> {
 
-    private final FoodRepository foodRepository;
+    private final FoodService foodService;
 
     @Override
     public void initialize(ExistCategories constraintAnnotation) {
@@ -24,7 +24,7 @@ public class CategoriesExistValidator implements ConstraintValidator<ExistCatego
     public boolean isValid(List<Long> values, ConstraintValidatorContext context) {
 
         boolean isExists = values.stream()
-                .allMatch(foodRepository::existsById);
+                .allMatch(foodService::existsById);
 
         if (!isExists) {
             context.disableDefaultConstraintViolation();

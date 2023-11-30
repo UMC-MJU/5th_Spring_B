@@ -30,7 +30,7 @@ public class Member extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String Email;
+    private String email;
     // private String provider
     private String name;
 

@@ -1,11 +1,11 @@
-package week7.api.apiPayload.code;
+package week7.api.global.code;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import week7.api.apiPayload.code.status.SuccessStatus;
+import week7.api.global.code.status.SuccessStatus;
 
 @Getter
 @AllArgsConstructor

@@ -1,10 +1,10 @@
-package week7.api.apiPayload.code.status;
+package week7.api.global.code.status;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
-import week7.api.apiPayload.code.BaseCode;
-import week7.api.apiPayload.code.ReasonDTO;
+import week7.api.global.code.BaseCode;
+import week7.api.global.code.ReasonDTO;
 
 @Getter
 @AllArgsConstructor

@@ -1,9 +1,9 @@
-package week7.api.apiPayload.exception;
+package week7.api.global.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import week7.api.apiPayload.code.BaseErrorCode;
-import week7.api.apiPayload.code.ErrorReasonDTO;
+import week7.api.global.code.BaseErrorCode;
+import week7.api.global.code.ErrorReasonDTO;
 
 @Getter
 @AllArgsConstructor

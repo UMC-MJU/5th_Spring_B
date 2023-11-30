@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import week7.api.apiPayload.code.ApiResponse;
+import week7.api.global.code.ApiResponse;
 import week7.api.domain.member.converter.MemberConverter;
 import week7.api.domain.member.domain.Member;
 import week7.api.domain.member.dto.MemberRequestDTO;

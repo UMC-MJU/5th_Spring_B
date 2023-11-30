@@ -1,9 +1,9 @@
-package week7.api.apiPayload.service;
+package week7.api.global.practicetemp.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import week7.api.apiPayload.code.status.ErrorStatus;
-import week7.api.apiPayload.exception.handler.TempHandler;
+import week7.api.global.code.status.ErrorStatus;
+import week7.api.global.exception.handler.TempHandler;
 
 @Service
 @RequiredArgsConstructor

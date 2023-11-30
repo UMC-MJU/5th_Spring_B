@@ -1,6 +1,6 @@
-package week7.api.apiPayload.converter;
+package week7.api.global.practicetemp.converter;
 
-import week7.api.apiPayload.dto.TempResponse;
+import week7.api.global.practicetemp.dto.TempResponse;
 
 public class TempConverter {
 

@@ -14,24 +14,30 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import week7.api.domain.base.BaseEntity;
-import week7.api.domain.food.domain.Food;
 import week7.api.domain.domain.Gender;
 import week7.api.domain.domain.Review;
+import week7.api.domain.food.domain.Food;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //    @Column(nullable = false, length = 50)
     private String email;
     // private String provider
+//    @Column(nullable = false, length = 20)
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -39,10 +45,12 @@ public class Member extends BaseEntity {
 
     private LocalDateTime birthday;
 
-//    @Embedded
+    //    @Embedded
     private String address;
 
     private boolean isOwner;
+
+    private Integer point = 0;
 
     @OneToMany(mappedBy = "member")
     private List<Food> foodList = new ArrayList<>();

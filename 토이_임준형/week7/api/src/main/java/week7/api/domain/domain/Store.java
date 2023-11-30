@@ -30,7 +30,7 @@ public class Store extends BaseEntity {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "review")
+    @OneToMany(mappedBy = "store")
     private List<Review> reviewList = new ArrayList<>();
 
 }

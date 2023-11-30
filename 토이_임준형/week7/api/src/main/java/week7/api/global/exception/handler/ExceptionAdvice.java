@@ -1,4 +1,4 @@
-package week7.api.apiPayload.exception.handler;
+package week7.api.global.exception.handler;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import week7.api.apiPayload.code.ApiResponse;
-import week7.api.apiPayload.code.ErrorReasonDTO;
-import week7.api.apiPayload.code.status.ErrorStatus;
-import week7.api.apiPayload.exception.GeneralException;
+import week7.api.global.code.ApiResponse;
+import week7.api.global.code.ErrorReasonDTO;
+import week7.api.global.code.status.ErrorStatus;
+import week7.api.global.exception.GeneralException;
 
 @Slf4j
 @RestControllerAdvice(annotations = {RestController.class})

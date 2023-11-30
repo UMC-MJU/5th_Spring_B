@@ -1,4 +1,4 @@
-package week7.api.apiPayload.code;
+package week7.api.global.code;
 
 import lombok.Builder;
 import lombok.Getter;

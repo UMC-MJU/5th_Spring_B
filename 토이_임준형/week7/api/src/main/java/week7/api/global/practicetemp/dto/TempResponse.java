@@ -1,4 +1,4 @@
-package week7.api.apiPayload.dto;
+package week7.api.global.practicetemp.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

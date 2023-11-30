@@ -1,15 +1,22 @@
 package week7.api.domain.domain;
 
 import javax.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import week7.api.domain.base.BaseEntity;
 
 @Embeddable
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@ToString
 public class Address extends BaseEntity {
 
-    private String province;    // 경기도, 강원도 등
     private String city; // 용인시, 수원시 등
-    private String district; // 수지구 등
-    private String neighbored; // 상현동 등
     private String zipcode; // 도로명 주소
 
 

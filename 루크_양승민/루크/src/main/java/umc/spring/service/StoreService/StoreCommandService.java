@@ -6,4 +6,6 @@ import umc.spring.web.dto.Store.StoreRequest;
 
 public interface StoreCommandService {
     Store addReview(Long storeId, Long memberId, StoreRequest.AddReviewDto request);
+
+    Store addMission(Long storeId, StoreRequest.AddMissionDto request);
 }

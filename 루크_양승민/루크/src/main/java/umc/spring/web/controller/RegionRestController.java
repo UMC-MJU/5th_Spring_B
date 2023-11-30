@@ -20,7 +20,7 @@ public class RegionRestController {
     private RegionCommandService regionCommandService;
 
     @PostMapping("/store")
-    public ApiResponse<RegionResponse.AddStoreResultDTO> join(
+    public ApiResponse<RegionResponse.AddStoreResultDTO> addStore(
             @RequestBody RegionRequest.AddStoreDto request
     ) {
         Store store = regionCommandService.addStore(request);

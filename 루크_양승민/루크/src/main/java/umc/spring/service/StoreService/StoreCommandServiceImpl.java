@@ -3,8 +3,10 @@ package umc.spring.service.StoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import umc.spring.converter.MissionConverter;
 import umc.spring.converter.ReviewConverter;
 import umc.spring.domain.Member;
+import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
 import umc.spring.domain.Store;
 import umc.spring.repository.MemberRepository;
@@ -27,6 +29,19 @@ public class StoreCommandServiceImpl implements StoreCommandService {
         Review review = ReviewConverter.toReview(member, request);
 
         store.getReviewList().add(review);
+
+        return store;
+    }
+
+
+    @Override
+    @Transactional
+    public Store addMission(Long storeId, StoreRequest.AddMissionDto request) {
+        Store store = storeRepository.getReferenceById(storeId);
+
+        Mission mission = MissionConverter.toMission(request);
+
+        store.getMissionList().add(mission);
 
         return store;
     }

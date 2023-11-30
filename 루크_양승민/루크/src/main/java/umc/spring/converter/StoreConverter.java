@@ -15,6 +15,13 @@ public class StoreConverter {
                 .build();
     }
 
+    public static StoreResponse.AddMissionResultDTO toAddMissionResultDTO(Store store){
+        return StoreResponse.AddMissionResultDTO.builder()
+                .storeId(store.getId())
+                .createdAt(LocalDateTime.now())
+                .build();
+    }
+
     public static Store toStore(RegionRequest.AddStoreDto request){
         return Store.builder()
                 .name(request.getName())

@@ -1,9 +1,11 @@
 package umc.study.web.dto;
 
 import lombok.Getter;
+import umc.study.domain.ReviewImage;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 public class ReviewRequestDTO {
     @Getter
@@ -12,5 +14,7 @@ public class ReviewRequestDTO {
         String title;
         @NotNull
         Float score;
+
+        List<ReviewImage> reviewImageList;
     }
 }

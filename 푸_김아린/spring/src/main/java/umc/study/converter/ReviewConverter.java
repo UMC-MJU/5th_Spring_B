@@ -19,6 +19,7 @@ public class ReviewConverter {
         return Review.builder()
                 .title(request.getTitle())
                 .score(request.getScore())
+                .reviewImageList(request.getReviewImageList())
                 .build();
     }
 }

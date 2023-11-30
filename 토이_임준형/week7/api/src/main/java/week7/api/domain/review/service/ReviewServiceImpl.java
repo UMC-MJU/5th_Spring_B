@@ -2,6 +2,7 @@ package week7.api.domain.review.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import week7.api.domain.review.converter.ReviewConverter;
 import week7.api.domain.review.domain.Review;
 import week7.api.domain.review.dto.ReviewCreateRequest;
 import week7.api.domain.review.dto.ReviewResponse;
@@ -32,12 +33,7 @@ public class ReviewServiceImpl implements ReviewService{
 
         reviewRepository.save(newReview);
 
-        // Converter 과정 생략
-        return ReviewResponse.builder()
-//                .memberId(member.getId)
-                .content(newReview.getContent())
-                .storeName(store.getName())
-                .build();
+        return ReviewConverter.toReviewResponse(newReview, request.getContent());
     }
 
 }

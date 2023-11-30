@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import week7.api.domain.domain.Address;
 import week7.api.domain.review.dto.ReviewCreateRequest;
+import week7.api.domain.store.converter.StoreConverter;
 import week7.api.domain.store.domain.Store;
 import week7.api.domain.store.dto.StoreCreateRequest;
 import week7.api.domain.store.dto.StoreResponse;
@@ -45,13 +46,9 @@ public class StoreServiceImpl implements StoreService {
                 .name(request.getName())
                 .build();
 
-        Store save = storeRepository.save(newStore);
-
+        Store store = storeRepository.save(newStore);
+        return StoreConverter.toResponse(store);
         // converter 과정 생략
-        return StoreResponse.builder()
-                .address(save.getAddress().toString())
-                .name(save.getName())
-                .build();
     }
 
     private int validAddress(String fullAddress) {

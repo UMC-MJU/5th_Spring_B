@@ -18,7 +18,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import week7.api.domain.base.BaseEntity;
 import week7.api.domain.domain.Gender;
-import week7.api.domain.domain.Review;
+import week7.api.domain.review.domain.Review;
 import week7.api.domain.food.domain.Food;
 
 @Entity

@@ -12,6 +12,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import week7.api.domain.base.BaseEntity;
+import week7.api.domain.review.domain.Review;
 
 @Entity
 @Getter

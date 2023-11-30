@@ -1,4 +1,4 @@
-package week7.api.domain.domain;
+package week7.api.domain.store.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import week7.api.domain.base.BaseEntity;
+import week7.api.domain.domain.Address;
+import week7.api.domain.review.domain.Review;
 
 @Entity
 @Getter

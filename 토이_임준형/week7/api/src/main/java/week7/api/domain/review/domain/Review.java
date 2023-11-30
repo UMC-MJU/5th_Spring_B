@@ -1,4 +1,4 @@
-package week7.api.domain.domain;
+package week7.api.domain.review.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import week7.api.domain.domain.ImageUrl;
 import week7.api.domain.member.domain.Member;
+import week7.api.domain.store.domain.Store;
 
 @Entity
 @Getter

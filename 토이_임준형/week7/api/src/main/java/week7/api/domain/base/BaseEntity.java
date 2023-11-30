@@ -1,4 +1,4 @@
-package week7.api.domain.common;
+package week7.api.domain.base;
 
 import java.time.LocalDateTime;
 import javax.persistence.Column;

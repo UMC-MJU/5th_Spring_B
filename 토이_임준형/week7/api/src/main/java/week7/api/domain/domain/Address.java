@@ -1,7 +1,7 @@
-package week7.api.domain;
+package week7.api.domain.domain;
 
 import javax.persistence.Embeddable;
-import week7.api.domain.common.BaseEntity;
+import week7.api.domain.base.BaseEntity;
 
 @Embeddable
 public class Address extends BaseEntity {

@@ -61,4 +61,10 @@ public class StoreServiceImpl implements StoreService {
         return cityIndex;
     }
 
+    @Override
+    public Store findStoreById(Long storeId) {
+        return storeRepository.findById(storeId)
+                .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_CATEGORY_NOT_FOUND))
+    }
+
 }

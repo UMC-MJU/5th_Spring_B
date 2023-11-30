@@ -9,4 +9,6 @@ public interface StoreService {
     Store getStore(ReviewCreateRequest request);
 
     StoreResponse registerStore(StoreCreateRequest request);
+
+    Store findStoreById(Long storeId);
 }

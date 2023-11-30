@@ -1,4 +1,4 @@
-package week7.api.domain.domain;
+package week7.api.domain.food.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +12,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import week7.api.domain.base.BaseEntity;
+import week7.api.domain.member.domain.Member;
 
 @Entity
 @Getter

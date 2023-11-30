@@ -1,4 +1,4 @@
-package week7.api.domain.dto;
+package week7.api.domain.member.dto;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;

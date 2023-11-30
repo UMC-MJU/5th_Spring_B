@@ -1,9 +1,8 @@
-package week7.api.domain.domain;
+package week7.api.domain.member.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -16,6 +15,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import week7.api.domain.base.BaseEntity;
+import week7.api.domain.food.domain.Food;
+import week7.api.domain.domain.Gender;
+import week7.api.domain.domain.Review;
 
 @Entity
 @Getter
@@ -37,8 +39,8 @@ public class Member extends BaseEntity {
 
     private LocalDateTime birthday;
 
-    @Embedded
-    private Address address;
+//    @Embedded
+    private String address;
 
     private boolean isOwner;
 

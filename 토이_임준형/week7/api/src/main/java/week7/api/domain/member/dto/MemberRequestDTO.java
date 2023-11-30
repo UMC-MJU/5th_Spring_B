@@ -1,4 +1,4 @@
-package week7.api.domain.dto;
+package week7.api.domain.member.dto;
 
 import java.util.List;
 import lombok.Getter;
@@ -12,7 +12,6 @@ public class MemberRequestDTO {
         Integer birthMonth;
         Integer birthDay;
         String address;
-        String specAddress;
-        List<Long> preferCategory;
+        List<Long> foodCategory;
     }
 }

@@ -1,4 +1,4 @@
-package week7.api.domain.service;
+package week7.api.domain.member.service;
 
 public interface MemberQueryService {
 }

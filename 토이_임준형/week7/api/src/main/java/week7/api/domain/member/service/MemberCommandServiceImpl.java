@@ -23,6 +23,7 @@ public class MemberCommandServiceImpl implements MemberCommandService {
     private final FoodRepository foodRepository;
 
     @Override
+    @Transactional
     public Member joinMember(MemberRequestDTO.JoinDto request) {
 
         // Converter 활용 Member 객체 생성

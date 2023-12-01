@@ -18,6 +18,6 @@ public class MissionController {
 
     @PostMapping("/mission")
     public ApiResponse<MissionResponse> writeReview(@RequestBody @Valid MissionCreateRequest request) {
-        return ApiResponse.onSuccess(missionService.writeReview(request));
+        return ApiResponse.onSuccess(missionService.registerMission(request));
     }
 }

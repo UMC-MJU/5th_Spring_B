@@ -4,5 +4,5 @@ import week7.api.domain.review.dto.ReviewCreateRequest;
 import week7.api.domain.review.dto.ReviewResponse;
 
 public interface ReviewService {
-    ReviewResponse writeReview(ReviewCreateRequest request);
+    ReviewResponse registerReview(ReviewCreateRequest request);
 }

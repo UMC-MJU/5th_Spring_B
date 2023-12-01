@@ -21,7 +21,7 @@ public class MissionServiceImpl implements MissionService {
     private final MissionRepository missionRepository;
 
     @Override
-    public MissionResponse writeReview(MissionCreateRequest request) {
+    public MissionResponse registerMission(MissionCreateRequest request) {
 
         String content = request.getContent();
         Long storeId = request.getStoreId();

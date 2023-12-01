@@ -18,7 +18,7 @@ public class ReviewServiceImpl implements ReviewService{
     private final ReviewRepository reviewRepository;
 
     @Override
-    public ReviewResponse writeReview(ReviewCreateRequest request) {
+    public ReviewResponse registerReview(ReviewCreateRequest request) {
 
         Store store = storeService.getStore(request);
 

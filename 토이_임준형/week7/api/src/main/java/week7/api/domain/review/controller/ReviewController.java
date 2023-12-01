@@ -19,6 +19,6 @@ public class ReviewController {
     // 리뷰 작성
     @PostMapping("/review")
     public ApiResponse<ReviewResponse> writeReview(@RequestBody @Valid ReviewCreateRequest request) {
-        return ApiResponse.onSuccess(reviewService.writeReview(request));
+        return ApiResponse.onSuccess(reviewService.registerReview(request));
     }
 }

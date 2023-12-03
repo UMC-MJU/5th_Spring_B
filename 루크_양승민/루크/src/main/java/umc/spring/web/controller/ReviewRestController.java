@@ -7,23 +7,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import umc.spring.apiPayload.ApiResponse;
-import umc.spring.service.memberService.command.MemberCommandService;
-import umc.spring.web.dto.memberDTO.MemberRequest;
-import umc.spring.web.dto.memberDTO.MemberResponse;
+import umc.spring.service.reviewService.command.ReviewCommandService;
+import umc.spring.web.dto.reviewDTO.ReviewRequest;
+import umc.spring.web.dto.reviewDTO.ReviewResponse;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/members")
-public class MemberRestController {
+@RequestMapping("/review")
+public class ReviewRestController {
 
-    private final MemberCommandService memberCommandService;
+    private ReviewCommandService reviewCommandService;
 
     @PostMapping("/")
-    public ApiResponse<MemberResponse.JoinResultDTO> join(
-            @RequestBody @Validated MemberRequest.JoinDto request
+    public ApiResponse<ReviewResponse.AddResultDTO> addReview(
+            @RequestBody @Validated ReviewRequest.AddDto request
     ) {
-        MemberResponse.JoinResultDTO resultDTO = memberCommandService.joinMember(request);
+        ReviewResponse.AddResultDTO resultDTO = reviewCommandService.addReview(request);
         return ApiResponse.onSuccess(resultDTO);
     }
-
 }

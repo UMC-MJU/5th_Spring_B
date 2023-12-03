@@ -22,4 +22,8 @@ public class ReviewImage extends BaseEntity{
     @JoinColumn(name = "review_id")
     private Review review;
 
+    public void addReview(Review review) {
+        review.getReviewImageList().add(this);
+        this.review = review;
+    }
 }

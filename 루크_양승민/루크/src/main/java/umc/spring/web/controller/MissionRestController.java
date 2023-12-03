@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import umc.spring.apiPayload.ApiResponse;
-import umc.spring.service.memberService.command.MemberCommandService;
-import umc.spring.web.dto.memberDTO.MemberRequest;
-import umc.spring.web.dto.memberDTO.MemberResponse;
+import umc.spring.service.missionService.command.MissionCommandService;
+import umc.spring.web.dto.missionDTO.MissionRequest;
+import umc.spring.web.dto.missionDTO.MissionResponse;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/members")
-public class MemberRestController {
+@RequestMapping("/mission")
+public class MissionRestController {
 
-    private final MemberCommandService memberCommandService;
+    private final MissionCommandService missionCommandService;
 
     @PostMapping("/")
-    public ApiResponse<MemberResponse.JoinResultDTO> join(
-            @RequestBody @Validated MemberRequest.JoinDto request
+    public ApiResponse<MissionResponse.AddResultDTO> addMission(
+            @RequestBody @Validated MissionRequest.AddDto request
     ) {
-        MemberResponse.JoinResultDTO resultDTO = memberCommandService.joinMember(request);
+        MissionResponse.AddResultDTO resultDTO = missionCommandService.addMission(request);
         return ApiResponse.onSuccess(resultDTO);
     }
 

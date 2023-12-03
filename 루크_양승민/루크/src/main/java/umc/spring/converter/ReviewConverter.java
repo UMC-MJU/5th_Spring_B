@@ -1,21 +1,26 @@
 package umc.spring.converter;
 
-import umc.spring.domain.Member;
-import umc.spring.domain.Review;
-import umc.spring.web.dto.Store.StoreRequest;
+import umc.spring.domain.*;
+import umc.spring.web.dto.reviewDTO.ReviewRequest;
+import umc.spring.web.dto.reviewDTO.ReviewResponse;
 
-import java.util.stream.Collectors;
+import java.time.LocalDateTime;
 
 public class ReviewConverter {
 
-    public static Review toReview(Member member, StoreRequest.AddReviewDto request){
+    public static ReviewResponse.AddResultDTO toAddResultDto(Review review) {
+        return ReviewResponse.AddResultDTO.builder()
+                .reviewId(review.getId())
+                .createdAt(LocalDateTime.now())
+                .build();
+    }
+
+    public static Review toReview(ReviewRequest.AddDto request, Member member, Store store) {
         return Review.builder()
                 .title(request.getTitle())
                 .score(request.getScore())
                 .member(member)
-                .reviewImageList(request.getImageUrl().stream()
-                        .map(ReviewImageConverter::toReviewImage)
-                        .collect(Collectors.toList()))
+                .store(store)
                 .build();
     }
 }

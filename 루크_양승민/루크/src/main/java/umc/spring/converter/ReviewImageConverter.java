@@ -4,9 +4,10 @@ import umc.spring.domain.ReviewImage;
 
 public class ReviewImageConverter {
 
-    public static ReviewImage toReviewImage(String imgUrl){
+    public static ReviewImage toReviewImage(String imageUrl){
         return ReviewImage.builder()
-                .imageUrl(imgUrl)
+                .imageUrl(imageUrl)
                 .build();
     }
+
 }

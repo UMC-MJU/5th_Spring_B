@@ -28,9 +28,7 @@ public class Store extends BaseEntity {
     @JoinColumn(name = "region_id")
     private Region region;
 
-    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-    private List<Review> reviewList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-    private List<Mission> missionList = new ArrayList<>();
+    public void calculateScore(Float reviewScore) {
+        //TODO: 평점 계산 로직 구현 필요
+    }
 }

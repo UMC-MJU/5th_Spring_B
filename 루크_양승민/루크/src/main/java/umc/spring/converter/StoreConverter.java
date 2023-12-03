@@ -1,31 +1,26 @@
 package umc.spring.converter;
 
+import umc.spring.domain.Region;
 import umc.spring.domain.Store;
-import umc.spring.web.dto.Region.RegionRequest;
-import umc.spring.web.dto.Store.StoreResponse;
-
-import java.time.LocalDateTime;
+import umc.spring.web.dto.storeDTO.StoreRequest;
+import umc.spring.web.dto.storeDTO.StoreResponse;
 
 public class StoreConverter {
 
-    public static StoreResponse.AddReviewResultDTO toAddReviewResultDTO(Store store){
-        return StoreResponse.AddReviewResultDTO.builder()
+    public static StoreResponse.AddResultDTO toAddResultDto(Store store) {
+        return StoreResponse.AddResultDTO.builder()
                 .storeId(store.getId())
-                .createdAt(LocalDateTime.now())
+                .createdAt(store.getCreatedAt())
                 .build();
     }
 
-    public static StoreResponse.AddMissionResultDTO toAddMissionResultDTO(Store store){
-        return StoreResponse.AddMissionResultDTO.builder()
-                .storeId(store.getId())
-                .createdAt(LocalDateTime.now())
-                .build();
-    }
-
-    public static Store toStore(RegionRequest.AddStoreDto request){
+    public static Store toStore(StoreRequest.AddDto request, Region region){
         return Store.builder()
                 .name(request.getName())
                 .address(request.getAddress())
+                .score(request.getScore())
+                .region(region)
                 .build();
     }
+
 }

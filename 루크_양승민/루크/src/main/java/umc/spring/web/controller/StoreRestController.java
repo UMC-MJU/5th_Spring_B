@@ -1,13 +1,15 @@
 package umc.spring.web.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import umc.spring.apiPayload.ApiResponse;
-import umc.spring.converter.StoreConverter;
-import umc.spring.domain.Store;
-import umc.spring.service.StoreService.StoreCommandService;
-import umc.spring.web.dto.Store.StoreRequest;
-import umc.spring.web.dto.Store.StoreResponse;
+import umc.spring.service.storeService.command.StoreCommandService;
+import umc.spring.web.dto.storeDTO.StoreRequest;
+import umc.spring.web.dto.storeDTO.StoreResponse;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,22 +18,12 @@ public class StoreRestController {
 
     private final StoreCommandService storeCommandService;
 
-    @PostMapping("/{storeId}/review/{memberId}")
-    public ApiResponse<StoreResponse.AddReviewResultDTO> addReview(
-            @PathVariable Long storeId,
-            @PathVariable Long memberId,
-            @RequestBody StoreRequest.AddReviewDto request
+    @PostMapping("/")
+    public ApiResponse<StoreResponse.AddResultDTO> add(
+            @RequestBody @Validated StoreRequest.AddDto request
     ) {
-        Store store = storeCommandService.addReview(storeId, memberId, request);
-        return ApiResponse.onSuccess(StoreConverter.toAddReviewResultDTO(store));
+        StoreResponse.AddResultDTO resultDTO = storeCommandService.addStore(request);
+        return ApiResponse.onSuccess(resultDTO);
     }
 
-    @PostMapping("/{storeId}/mission")
-    public ApiResponse<StoreResponse.AddMissionResultDTO> addMission(
-            @PathVariable Long storeId,
-            @RequestBody StoreRequest.AddMissionDto request
-    ) {
-        Store store = storeCommandService.addMission(storeId, request);
-        return ApiResponse.onSuccess(StoreConverter.toAddMissionResultDTO(store));
-    }
 }

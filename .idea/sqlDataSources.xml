@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="fa3f6bd7-afcd-4350-9ba2-5e8ca2552939" name="@poohdb.crwreew5hcii.ap-northeast-2.rds.amazonaws.com Mapping">
+      <data-sources db="bef81eba-09e0-4200-8d38-d9ec40c76421" />
+      <scope>
+        <node kind="database" negative="1" />
+      </scope>
+    </mapping>
+  </component>
+</project>

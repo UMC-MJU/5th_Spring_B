@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ReviewResponseDTO {
 
@@ -16,5 +17,9 @@ public class ReviewResponseDTO {
     public static class PostReviewDTO {
         Long reviewId;
         LocalDateTime createdAt;
+        String nickname;
+        Float score;
+        String reviewContent;
+        List<String> reviewImageList;
     }
 }

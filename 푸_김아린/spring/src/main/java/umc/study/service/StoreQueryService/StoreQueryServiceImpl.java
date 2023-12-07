@@ -9,7 +9,9 @@ import umc.study.domain.Review;
 import umc.study.domain.Store;
 import umc.study.repository.ReviewRepository;
 import umc.study.repository.StoreRepository;
+import umc.study.web.dto.StoreResponseDTO;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 @Service
@@ -26,10 +28,16 @@ public class StoreQueryServiceImpl implements StoreQueryService {
     }
 
     @Override
-    public Page<Review> getReviewList(Long StoreId, Integer page) {
-        Store store = storeRepository.findById(StoreId).get();
+    public Page<Review> getReviewList(Long storeId, Integer page) {
+        Store store = storeRepository.findById(storeId).orElseThrow(() -> new EntityNotFoundException("가게를 찾을 수 없습니다."));
 
-        Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
-        return StorePage;
+        Page<Review> reviewPage = reviewRepository.findAllByStore(store, PageRequest.of(page - 1, 10));
+
+        return (Page<Review>) StoreResponseDTO.ReviewPreViewListDTO.builder()
+                .totalPage(reviewPage.getTotalPages())
+                .totalElements(reviewPage.getTotalElements())
+                .isFirst(reviewPage.isFirst())
+                .isLast(reviewPage.isLast())
+                .build();
     }
 }

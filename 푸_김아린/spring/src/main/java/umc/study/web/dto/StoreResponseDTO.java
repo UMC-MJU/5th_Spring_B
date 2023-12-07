@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class StoreResponseDTO {
@@ -41,7 +42,7 @@ public class StoreResponseDTO {
     @AllArgsConstructor
     public static class CreateReviewResultDTO {
         Long reviewId;
-        LocalDate createdAt;
+        LocalDateTime createdAt;
     }
 
 }

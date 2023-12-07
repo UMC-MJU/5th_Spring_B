@@ -6,6 +6,7 @@ import umc.study.web.dto.StoreRequestDTO;
 import umc.study.web.dto.StoreResponseDTO;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,7 @@ public class StoreConverter {
     public static StoreResponseDTO.CreateReviewResultDTO toCreateReviewResultDTO(Review review) {
         return StoreResponseDTO.CreateReviewResultDTO.builder()
                 .reviewId(review.getId())
-                .createdAt(LocalDate.now())
+                .createdAt(LocalDateTime.now())
                 .build();
     }
 

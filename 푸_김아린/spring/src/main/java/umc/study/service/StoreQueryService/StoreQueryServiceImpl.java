@@ -19,7 +19,6 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class StoreQueryServiceImpl implements StoreQueryService {
     private final StoreRepository storeRepository;
-
     private final ReviewRepository reviewRepository;
 
     @Override
@@ -29,15 +28,9 @@ public class StoreQueryServiceImpl implements StoreQueryService {
 
     @Override
     public Page<Review> getReviewList(Long storeId, Integer page) {
-        Store store = storeRepository.findById(storeId).orElseThrow(() -> new EntityNotFoundException("가게를 찾을 수 없습니다."));
+        Store store = storeRepository.findById(storeId).orElseThrow(() -> new EntityNotFoundException("가게를 찾을 수 없습니다." + storeId));
 
-        Page<Review> reviewPage = reviewRepository.findAllByStore(store, PageRequest.of(page - 1, 10));
-
-        return (Page<Review>) StoreResponseDTO.ReviewPreViewListDTO.builder()
-                .totalPage(reviewPage.getTotalPages())
-                .totalElements(reviewPage.getTotalElements())
-                .isFirst(reviewPage.isFirst())
-                .isLast(reviewPage.isLast())
-                .build();
+        PageRequest pageRequest = PageRequest.of(page -1, 10);
+        return reviewRepository.findAllByStore(store, pageRequest);
     }
 }

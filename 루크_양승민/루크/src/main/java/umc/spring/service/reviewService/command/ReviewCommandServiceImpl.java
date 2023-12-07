@@ -40,9 +40,9 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
 
         Review review = ReviewConverter.toReview(request, member, store);
 
-        for (ReviewImage reviewImage : reviewImageList) {
+        reviewImageList.forEach(reviewImage -> {
             reviewImage.addReview(review);
-        }
+        });
 
         return ReviewConverter.toAddResultDto(reviewRepository.save(review));
     }

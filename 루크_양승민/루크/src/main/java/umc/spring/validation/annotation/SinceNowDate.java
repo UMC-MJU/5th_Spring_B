@@ -12,7 +12,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface SinceNowDate {
 
-    String message() default "해당 날짜는 넘어갈 수 없습니다.";
+    String message() default "현재 날짜 이전일 수 없습니다.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 

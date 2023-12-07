@@ -30,7 +30,7 @@ public class StoreQueryServiceImpl implements StoreQueryService {
     public Page<Review> getReviewList(Long storeId, Integer page) {
         Store store = storeRepository.findById(storeId).orElseThrow(() -> new EntityNotFoundException("가게를 찾을 수 없습니다." + storeId));
 
-        PageRequest pageRequest = PageRequest.of(page -1, 10);
+        PageRequest pageRequest = PageRequest.of(page - 1, 10);
         return reviewRepository.findAllByStore(store, pageRequest);
     }
 }

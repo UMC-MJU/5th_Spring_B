@@ -37,6 +37,8 @@ public class Member extends BaseEntity {
     @Column(nullable = false)
     private Integer age;
 
+    private LocalDate birthday;
+
     @Column(nullable = false, length = 40)
     private String address;
 

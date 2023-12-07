@@ -1,6 +1,7 @@
 package umc.spring.web.dto.missionDTO;
 
 import lombok.Getter;
+import umc.spring.validation.annotation.SinceNowDate;
 
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
@@ -12,10 +13,13 @@ public class MissionRequest {
 
         @NotEmpty
         Integer reward;
-        @NotEmpty
+
+        @SinceNowDate
         LocalDate deadline;
+
         @NotEmpty
         String missionSpec;
+
         @NotEmpty
         Long storeId;
 

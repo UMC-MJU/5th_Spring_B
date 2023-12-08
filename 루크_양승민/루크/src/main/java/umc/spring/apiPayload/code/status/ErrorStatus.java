@@ -24,8 +24,12 @@ public enum ErrorStatus implements BaseErrorCode {
 
     // Member Error (example)
 
-    MEMBER_NOT_FOUND(HttpStatus.BAD_REQUEST, "MEMBER4001", "사용자가 없습니다."),
+    MEMBER_NOT_FOUND(HttpStatus.NOT_FOUND, "MEMBER4001", "해당 사용자가 없습니다."),
     NICKNAME_NOT_EXIST(HttpStatus.BAD_REQUEST, "MEMBER4002", "닉네임은 필수 입니다."),
+
+
+    // Mission Error
+    MISSION_NOT_FOUND(HttpStatus.NOT_FOUND, "MISSION4041","해당 미션이 없습니다."),
 
 
     // Article Error

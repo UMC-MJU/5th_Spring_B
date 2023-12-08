@@ -39,6 +39,7 @@ public class MissionCommandServiceImpl implements MissionCommandService {
     }
 
     @Override
+    @Transactional
     public MissionResponse.ChallengedResultDTO challengedMission(MissionRequest.ChallengedDTO request) {
         Member member = memberBaseService.getMember(request);
 

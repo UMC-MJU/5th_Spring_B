@@ -8,4 +8,6 @@ public interface MemberBaseService {
     Member getMember(ReviewRequest.AddDto request);
 
     Member getMember(MissionRequest.ChallengedDTO request);
+
+    Member getMember(Long memberId);
 }

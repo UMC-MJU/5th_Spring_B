@@ -25,6 +25,11 @@ public class MemberBaseServiceImpl implements MemberBaseService {
         return findMemberById(request.getMemberId());
     }
 
+    @Override
+    public Member getMember(Long memberId) {
+        return findMemberById(memberId);
+    }
+
     private Member findMemberById(Long memberId) {
         return memberRepository.findById(memberId)
                 .orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));

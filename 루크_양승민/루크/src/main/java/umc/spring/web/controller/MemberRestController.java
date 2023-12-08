@@ -1,12 +1,10 @@
 package umc.spring.web.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import umc.spring.apiPayload.ApiResponse;
 import umc.spring.service.memberService.command.MemberCommandService;
+import umc.spring.service.memberService.query.MemberQueryService;
 import umc.spring.web.dto.memberDTO.MemberRequest;
 import umc.spring.web.dto.memberDTO.MemberResponse;
 
@@ -18,6 +16,7 @@ import javax.validation.Valid;
 public class MemberRestController {
 
     private final MemberCommandService memberCommandService;
+    private final MemberQueryService memberQueryService;
 
     @PostMapping("/")
     public ApiResponse<MemberResponse.JoinResultDTO> join(
@@ -27,4 +26,12 @@ public class MemberRestController {
         return ApiResponse.onSuccess(resultDTO);
     }
 
+    @GetMapping("/{memberId}/reviews")
+    public ApiResponse<MemberResponse.ReviewPreviewListDTO> getReviewList(
+            @PathVariable("memberId") Long memberId,
+            @RequestParam("page") Integer page
+    ) {
+        MemberResponse.ReviewPreviewListDTO resultDTO = memberQueryService.getReviewList(memberId, page);
+        return ApiResponse.onSuccess(resultDTO);
+    }
 }

@@ -35,7 +35,7 @@ public class MemberRestController {
         return ApiResponse.onSuccess(resultDTO);
     }
 
-    @GetMapping("/{memberId}/misisons")
+    @GetMapping("/{memberId}/missions")
     public ApiResponse<MemberResponse.MissionListDTO> getMissionList(
             @PathVariable("memberId") Long memberId,
             @RequestParam("page") Integer page

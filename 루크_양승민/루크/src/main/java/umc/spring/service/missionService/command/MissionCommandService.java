@@ -5,4 +5,6 @@ import umc.spring.web.dto.missionDTO.MissionResponse;
 
 public interface MissionCommandService {
     MissionResponse.AddResultDTO addMission(MissionRequest.AddDto request);
+
+    MissionResponse.ChallengedResultDTO challengedMission(MissionRequest.ChallengedDTO request);
 }

@@ -43,4 +43,5 @@ public class MemberRestController {
         MemberResponse.MissionListDTO resultDTO = memberQueryService.getMisisonList(memberId, page);
         return ApiResponse.onSuccess(resultDTO);
     }
+
 }

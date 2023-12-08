@@ -35,4 +35,11 @@ public class MissionRequest {
         Long missionId;
 
     }
+
+    @Getter
+    public static class SucceedMissionDTO {
+
+        Long memberMissionId;
+
+    }
 }

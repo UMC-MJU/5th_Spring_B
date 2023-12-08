@@ -8,6 +8,7 @@ import umc.spring.converter.mapping.MemberMissionConverter;
 import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
 import umc.spring.domain.Store;
+import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.repository.MemberMissionRepository;
 import umc.spring.repository.MissionRepository;
@@ -48,5 +49,15 @@ public class MissionCommandServiceImpl implements MissionCommandService {
         MemberMission memberMission = MemberMissionConverter.toMemberMission(member, mission);
 
         return MissionConverter.toChallengedResultDTO(memberMissionRepository.save(memberMission));
+    }
+
+    @Override
+    @Transactional
+    public MissionResponse.SuccessResultDTO succeedMission(MissionRequest.SucceedMissionDTO request) {
+        MemberMission memberMission = memberBaseService.getMemberMission(request.getMemberMissionId());
+
+        memberMission.changeStatus(MissionStatus.COMPLETE);
+
+        return MissionConverter.toSuccessResultDTO(memberMission);
     }
 }

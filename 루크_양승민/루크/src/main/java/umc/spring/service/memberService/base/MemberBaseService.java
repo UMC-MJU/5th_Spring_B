@@ -17,4 +17,6 @@ public interface MemberBaseService {
     Member getMember(Long memberId);
 
     Page<MemberMission> getAllMemberMissionByMemberAndStatus(Member member, MissionStatus status, PageRequest of);
+
+    MemberMission getMemberMission(Long memberMissionId);
 }

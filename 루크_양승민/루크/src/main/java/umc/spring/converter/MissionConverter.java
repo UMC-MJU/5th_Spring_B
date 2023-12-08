@@ -32,4 +32,11 @@ public class MissionConverter {
                 .store(store)
                 .build();
     }
+
+    public static MissionResponse.SuccessResultDTO toSuccessResultDTO(MemberMission memberMission) {
+        return MissionResponse.SuccessResultDTO.builder()
+                .memberMissionId(memberMission.getId())
+                .createdAt(LocalDateTime.now())
+                .build();
+    }
 }

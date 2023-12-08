@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.apiPayload.exception.handler.MemberHandler;
+import umc.spring.apiPayload.exception.handler.MemberMissionHandler;
 import umc.spring.domain.Member;
 import umc.spring.domain.enums.MemberStatus;
 import umc.spring.domain.enums.MissionStatus;
@@ -38,6 +39,11 @@ public class MemberBaseServiceImpl implements MemberBaseService {
     }
 
     @Override
+    public MemberMission getMemberMission(Long memberMissionId) {
+        return findMemberMissionById(memberMissionId);
+    }
+
+    @Override
     public Page<MemberMission> getAllMemberMissionByMemberAndStatus(Member member, MissionStatus status, PageRequest pageRequest) {
         return memberMissionRepository.findAllByMemberAndStatus(member, status, pageRequest);
     }
@@ -45,5 +51,10 @@ public class MemberBaseServiceImpl implements MemberBaseService {
     private Member findMemberById(Long memberId) {
         return memberRepository.findById(memberId)
                 .orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND));
+    }
+
+    private MemberMission findMemberMissionById(Long memberMissionId) {
+        return memberMissionRepository.findById(memberMissionId)
+                .orElseThrow(() -> new MemberMissionHandler(ErrorStatus.MEMBER_MISSION_NOT_FOUND));
     }
 }

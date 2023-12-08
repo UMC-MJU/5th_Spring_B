@@ -7,4 +7,6 @@ public interface MissionCommandService {
     MissionResponse.AddResultDTO addMission(MissionRequest.AddDto request);
 
     MissionResponse.ChallengedResultDTO challengedMission(MissionRequest.ChallengedDTO request);
+
+    MissionResponse.SuccessResultDTO succeedMission(MissionRequest.SucceedMissionDTO request);
 }

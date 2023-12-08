@@ -35,4 +35,12 @@ public class MissionRestController {
         return ApiResponse.onSuccess(resultDTO);
     }
 
+    @PostMapping("/success")
+    public ApiResponse<MissionResponse.SuccessResultDTO> succeedMission(
+            @RequestBody @Valid MissionRequest.SucceedMissionDTO request
+    ) {
+        MissionResponse.SuccessResultDTO resultDTO = missionCommandService.succeedMission(request);
+        return ApiResponse.onSuccess(resultDTO);
+    }
+
 }

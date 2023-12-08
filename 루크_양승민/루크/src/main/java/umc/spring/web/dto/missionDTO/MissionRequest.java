@@ -24,4 +24,15 @@ public class MissionRequest {
         Long storeId;
 
     }
+
+    @Getter
+    public static class ChallengedDTO {
+
+        @NotEmpty
+        Long memberId;
+
+        @NotEmpty
+        Long missionId;
+
+    }
 }

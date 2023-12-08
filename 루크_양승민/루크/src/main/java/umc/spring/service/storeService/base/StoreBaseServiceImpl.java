@@ -25,6 +25,11 @@ public class StoreBaseServiceImpl implements StoreBaseService {
         return findStoreById(request.getStoreId());
     }
 
+    @Override
+    public Store getStore(Long storeId) {
+        return findStoreById(storeId);
+    }
+
     private Store findStoreById(Long storeId) {
         return storeRepository.findById(storeId)
                 .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));

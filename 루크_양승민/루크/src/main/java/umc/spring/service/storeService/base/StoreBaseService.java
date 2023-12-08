@@ -8,4 +8,6 @@ public interface StoreBaseService {
     Store getStore(ReviewRequest.AddDto request);
 
     Store getStore(MissionRequest.AddDto request);
+
+    Store getStore(Long storeId);
 }

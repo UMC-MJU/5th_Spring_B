@@ -8,6 +8,8 @@ import umc.spring.converter.MemberConverter;
 import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
 import umc.spring.domain.Review;
+import umc.spring.domain.enums.MemberStatus;
+import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.service.memberService.base.MemberBaseService;
 import umc.spring.service.reviewService.base.ReviewBaseService;
@@ -33,7 +35,7 @@ public class MemberQueryServiceImpl implements MemberQueryService {
     public MemberResponse.MissionListDTO getMisisonList(Long memberId, Integer page) {
         Member member = memberBaseService.getMember(memberId);
 
-        Page<MemberMission> memberMissionPage = memberBaseService.getAllMemberMissionByMember(member, PageRequest.of(page, 10));
+        Page<MemberMission> memberMissionPage = memberBaseService.getAllMemberMissionByMemberAndStatus(member, MissionStatus.CHALLENGING, PageRequest.of(page, 10));
 
         return MemberConverter.toMissionListDTO(memberMissionPage.map(MemberMission::getMission));
     }

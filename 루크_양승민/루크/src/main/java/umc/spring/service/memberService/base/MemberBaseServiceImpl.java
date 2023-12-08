@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.apiPayload.exception.handler.MemberHandler;
 import umc.spring.domain.Member;
+import umc.spring.domain.enums.MemberStatus;
+import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.repository.MemberMissionRepository;
 import umc.spring.repository.MemberRepository;
@@ -36,8 +38,8 @@ public class MemberBaseServiceImpl implements MemberBaseService {
     }
 
     @Override
-    public Page<MemberMission> getAllMemberMissionByMember(Member member, PageRequest pageRequest) {
-        return memberMissionRepository.findAllByMember(member, pageRequest);
+    public Page<MemberMission> getAllMemberMissionByMemberAndStatus(Member member, MissionStatus status, PageRequest pageRequest) {
+        return memberMissionRepository.findAllByMemberAndStatus(member, status, pageRequest);
     }
 
     private Member findMemberById(Long memberId) {

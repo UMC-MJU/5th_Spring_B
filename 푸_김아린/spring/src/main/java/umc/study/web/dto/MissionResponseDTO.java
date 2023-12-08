@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import umc.study.domain.FoodCategory;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class MissionResponseDTO {
         FoodCategory foodCategory;
         Integer cost;
         Integer point;
-        Integer dday;
+        LocalDate dday;
         Boolean status;
     }
 }

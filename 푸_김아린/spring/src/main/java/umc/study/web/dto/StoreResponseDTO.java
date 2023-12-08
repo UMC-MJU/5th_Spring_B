@@ -9,28 +9,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ReviewResponseDTO {
-
-    @Builder
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class PostReviewDTO {
-        Long reviewId;
-        LocalDateTime createdAt;
-        String nickname;
-        Float score;
-        String reviewContent;
-        List<String> reviewImageList;
-    }
-
+public class StoreResponseDTO {
 
     @Builder
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
     public static class ReviewPreViewListDTO {
-        List<ReviewResponseDTO.ReviewPreViewDTO> reviewList;
+        List<ReviewPreViewDTO> reviewList;
         Integer listSize;
         Integer totalPage;
         Long totalElements;
@@ -48,4 +34,15 @@ public class ReviewResponseDTO {
         String body;
         LocalDate createdAt;
     }
+
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class CreateReviewResultDTO {
+        Long reviewId;
+        LocalDateTime createdAt;
+    }
+
 }

@@ -5,8 +5,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import umc.study.domain.Mission;
 import umc.study.domain.Review;
 import umc.study.domain.Store;
+import umc.study.repository.MissionRepository;
 import umc.study.repository.ReviewRepository;
 import umc.study.repository.StoreRepository;
 import umc.study.web.dto.StoreResponseDTO;
@@ -20,6 +22,7 @@ import java.util.Optional;
 public class StoreQueryServiceImpl implements StoreQueryService {
     private final StoreRepository storeRepository;
     private final ReviewRepository reviewRepository;
+    private final MissionRepository missionRepository;
 
     @Override
     public Optional<Store> findStore(Long id) {
@@ -32,5 +35,13 @@ public class StoreQueryServiceImpl implements StoreQueryService {
 
         PageRequest pageRequest = PageRequest.of(page - 1, 10);
         return reviewRepository.findAllByStore(store, pageRequest);
+    }
+
+    @Override
+    public Page<Mission> getMissionList(Long storeId, Integer page) {
+        Store store = storeRepository.findById(storeId).orElseThrow(() -> new EntityNotFoundException("가게를 찾을 수 없습니다." + storeId));
+
+        PageRequest pageRequest = PageRequest.of(page - 1, 10);
+        return missionRepository.findAllByStore(store, pageRequest);
     }
 }

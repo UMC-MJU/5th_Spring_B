@@ -23,6 +23,8 @@ public class Mission extends BaseEntity {
 
     private Integer reward;
 
+    private Integer cost;
+
     private LocalDate deadline;
 
     private String missionSpec;

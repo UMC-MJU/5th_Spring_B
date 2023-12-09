@@ -1,5 +1,7 @@
 package umc.spring.web.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +19,16 @@ import javax.validation.Valid;
 @RequestMapping("/review")
 public class ReviewRestController {
 
-    private ReviewCommandService reviewCommandService;
+    private final ReviewCommandService reviewCommandService;
 
+    @Operation(
+            summary = "리뷰 추가 API",
+            description = "가게와 사용자 ID, 리뷰 정보를 받아 리뷰를 추가합니다."
+    )
     @PostMapping("/")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200", description = "OK, 성공")
+    })
     public ApiResponse<ReviewResponse.AddResultDTO> addReview(
             @RequestBody @Valid ReviewRequest.AddDto request
     ) {

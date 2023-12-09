@@ -1,8 +1,8 @@
 package umc.spring.web.dto.memberDTO;
 
 import lombok.Getter;
-import umc.spring.validation.annotation.ExistCategories;
-import umc.spring.validation.annotation.UntilNowDate;
+import umc.spring.validation.exist.annotation.ExistCategories;
+import umc.spring.validation.date.annotation.UntilNowDate;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

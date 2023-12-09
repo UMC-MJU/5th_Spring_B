@@ -53,7 +53,9 @@ public enum ErrorStatus implements BaseErrorCode {
 
 
     // Base Error
-    UNTIL_NOW_DATE_BAD_REQUEST(HttpStatus.BAD_REQUEST, "DATE4001", "잘못된 날짜 요청입니다.");
+    UNTIL_NOW_DATE_BAD_REQUEST(HttpStatus.BAD_REQUEST, "UTIL4001", "잘못된 날짜 요청입니다."),
+    PAGE_NEGATIVE_BAD_REQUEST(HttpStatus.BAD_REQUEST, "UTIL4002", "잘못된 페이지 요청입니다."),
+    TYPE_BAD_REQUEST(HttpStatus.NOT_FOUND, "UTIL4003", "잘못된 타입 요청입니다.");
 
 
     // ~~~ 관련 응답 ....

@@ -1,6 +1,7 @@
 package umc.spring.web.dto.storeDTO;
 
 import lombok.Getter;
+import umc.spring.validation.exist.annotation.ExistRegion;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -19,7 +20,7 @@ public class StoreRequest {
         @Size(max = 5)
         Float score;
 
-        @NotEmpty
+        @ExistRegion
         Long regionId;
     }
 }

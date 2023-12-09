@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.*;
 import umc.spring.apiPayload.ApiResponse;
 import umc.spring.service.storeService.command.StoreCommandService;
 import umc.spring.service.storeService.query.StoreQueryService;
+import umc.spring.validation.page.annotation.CheckPage;
 import umc.spring.web.dto.storeDTO.StoreRequest;
 import umc.spring.web.dto.storeDTO.StoreResponse;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,7 +30,7 @@ public class StoreRestController {
     @GetMapping("/{storeId}/missions")
     public ApiResponse<StoreResponse.MissionListDTO> getMissionList(
             @PathVariable("storeId") Long storeId,
-            @RequestParam("page") Integer page
+            @CheckPage @RequestParam("page") Integer page
     ) {
         StoreResponse.MissionListDTO resultDTO = storeQueryService.getMissionList(storeId, page);
         return ApiResponse.onSuccess(resultDTO);

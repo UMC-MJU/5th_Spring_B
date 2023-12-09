@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import umc.spring.apiPayload.ApiResponse;
 import umc.spring.service.memberService.command.MemberCommandService;
 import umc.spring.service.memberService.query.MemberQueryService;
+import umc.spring.validation.page.annotation.CheckPage;
 import umc.spring.web.dto.memberDTO.MemberRequest;
 import umc.spring.web.dto.memberDTO.MemberResponse;
 
@@ -29,7 +30,7 @@ public class MemberRestController {
     @GetMapping("/{memberId}/reviews")
     public ApiResponse<MemberResponse.ReviewPreviewListDTO> getReviewList(
             @PathVariable("memberId") Long memberId,
-            @RequestParam("page") Integer page
+            @CheckPage @RequestParam("page") Integer page
     ) {
         MemberResponse.ReviewPreviewListDTO resultDTO = memberQueryService.getReviewList(memberId, page);
         return ApiResponse.onSuccess(resultDTO);
@@ -38,7 +39,7 @@ public class MemberRestController {
     @GetMapping("/{memberId}/missions")
     public ApiResponse<MemberResponse.MissionListDTO> getMissionList(
             @PathVariable("memberId") Long memberId,
-            @RequestParam("page") Integer page
+            @CheckPage @RequestParam("page") Integer page
     ) {
         MemberResponse.MissionListDTO resultDTO = memberQueryService.getMisisonList(memberId, page);
         return ApiResponse.onSuccess(resultDTO);

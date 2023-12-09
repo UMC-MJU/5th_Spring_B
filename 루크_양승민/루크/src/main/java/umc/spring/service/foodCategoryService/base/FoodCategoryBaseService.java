@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface FoodCategoryBaseService {
 
-    Boolean isFoodCategories(List<Long> value);
+    boolean isExistedFoodCategories(List<Long> value);
 
 }

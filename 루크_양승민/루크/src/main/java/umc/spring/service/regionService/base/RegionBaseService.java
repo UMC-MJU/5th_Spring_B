@@ -5,4 +5,6 @@ import umc.spring.web.dto.storeDTO.StoreRequest;
 
 public interface RegionBaseService {
     Region getRegion(StoreRequest.AddDto request);
+
+    boolean isExistedRegion(Long regionId);
 }

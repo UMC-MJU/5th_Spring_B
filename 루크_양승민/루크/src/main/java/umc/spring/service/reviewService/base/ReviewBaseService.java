@@ -6,5 +6,5 @@ import umc.spring.domain.Member;
 import umc.spring.domain.Review;
 
 public interface ReviewBaseService {
-    Page<Review> getAllReviewsByMember(Member member, PageRequest of);
+    Page<Review> getAllReviewsByMember(Member member, PageRequest pageRequest);
 }

@@ -30,6 +30,11 @@ public class StoreBaseServiceImpl implements StoreBaseService {
         return findStoreById(storeId);
     }
 
+    @Override
+    public boolean isExistedStore(Long storeId) {
+        return storeRepository.existsById(storeId);
+    }
+
     private Store findStoreById(Long storeId) {
         return storeRepository.findById(storeId)
                 .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NOT_FOUND));

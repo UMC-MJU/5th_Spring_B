@@ -10,4 +10,6 @@ public interface StoreBaseService {
     Store getStore(MissionRequest.AddDto request);
 
     Store getStore(Long storeId);
+
+    boolean isExistedStore(Long storeId);
 }

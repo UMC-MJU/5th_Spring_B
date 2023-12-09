@@ -27,6 +27,11 @@ public class MissionBaseServiceImpl implements MissionBaseService {
         return missionRepository.findAllByStore(store, pageRequest);
     }
 
+    @Override
+    public boolean isExistedMission(Long missionId) {
+        return missionRepository.existsById(missionId);
+    }
+
     private Mission findMemberById(Long missionId) {
         return missionRepository.findById(missionId)
                 .orElseThrow(() -> new MissionHandler(ErrorStatus.MISSION_NOT_FOUND));

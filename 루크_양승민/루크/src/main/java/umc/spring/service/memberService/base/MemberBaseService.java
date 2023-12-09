@@ -16,7 +16,11 @@ public interface MemberBaseService {
 
     Member getMember(Long memberId);
 
-    Page<MemberMission> getAllMemberMissionByMemberAndStatus(Member member, MissionStatus status, PageRequest of);
+    Page<MemberMission> getAllMemberMissionByMemberAndStatus(Member member, MissionStatus status, PageRequest pageRequest);
 
     MemberMission getMemberMission(Long memberMissionId);
+
+    boolean isExistedMember(Long memberId);
+
+    boolean isExistedMemberMission(Long memberMissionId);
 }

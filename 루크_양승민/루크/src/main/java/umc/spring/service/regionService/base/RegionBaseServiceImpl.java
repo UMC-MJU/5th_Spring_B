@@ -19,6 +19,11 @@ public class RegionBaseServiceImpl implements RegionBaseService {
         return findRegionById(request.getRegionId());
     }
 
+    @Override
+    public boolean isExistedRegion(Long regionId) {
+        return regionRepository.existsById(regionId);
+    }
+
     private Region findRegionById(Long regionId) {
         return regionRepository.findById(regionId)
                 .orElseThrow(() -> new RegionHandler(ErrorStatus.REGION_NOT_FOUND));

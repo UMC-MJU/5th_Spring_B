@@ -8,7 +8,6 @@ import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.apiPayload.exception.handler.MemberHandler;
 import umc.spring.apiPayload.exception.handler.MemberMissionHandler;
 import umc.spring.domain.Member;
-import umc.spring.domain.enums.MemberStatus;
 import umc.spring.domain.enums.MissionStatus;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.repository.MemberMissionRepository;
@@ -41,6 +40,16 @@ public class MemberBaseServiceImpl implements MemberBaseService {
     @Override
     public MemberMission getMemberMission(Long memberMissionId) {
         return findMemberMissionById(memberMissionId);
+    }
+
+    @Override
+    public boolean isExistedMember(Long memberId) {
+        return memberRepository.existsById(memberId);
+    }
+
+    @Override
+    public boolean isExistedMemberMission(Long memberMissionId) {
+        return memberMissionRepository.existsById(memberMissionId);
     }
 
     @Override

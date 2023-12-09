@@ -13,7 +13,7 @@ public class FoodCategoryBaseServiceImpl implements FoodCategoryBaseService {
     private final FoodCategoryRepository foodCategoryRepository;
 
     @Override
-    public Boolean isFoodCategories(List<Long> value){
+    public boolean isExistedFoodCategories(List<Long> value){
         return value.stream().allMatch(foodCategoryRepository::existsById);
     }
 

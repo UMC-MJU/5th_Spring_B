@@ -9,5 +9,7 @@ import umc.spring.web.dto.missionDTO.MissionRequest;
 public interface MissionBaseService {
     Mission getMission(MissionRequest.ChallengedDTO request);
 
-    Page<Mission> getAllMissionsByStore(Store store, PageRequest of);
+    Page<Mission> getAllMissionsByStore(Store store, PageRequest pageRequest);
+
+    boolean isExistedMission(Long missionId);
 }

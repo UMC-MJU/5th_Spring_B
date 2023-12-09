@@ -1,16 +1,14 @@
-package umc.spring.validation.validator;
+package umc.spring.validation.date.validator;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.spring.apiPayload.code.status.ErrorStatus;
-import umc.spring.validation.annotation.UntilNowDate;
+import umc.spring.validation.date.annotation.UntilNowDate;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.time.LocalDate;
 
 @Component
-@RequiredArgsConstructor
 public class DateUntilNowValidator implements ConstraintValidator<UntilNowDate, LocalDate> {
 
     @Override

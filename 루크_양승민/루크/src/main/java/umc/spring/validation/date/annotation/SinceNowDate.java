@@ -1,10 +1,11 @@
-package umc.spring.validation.annotation;
+package umc.spring.validation.date.annotation;
 
-import umc.spring.validation.validator.DateSinceNowValidator;
+import umc.spring.validation.date.validator.DateSinceNowValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.*;
+import java.time.LocalDate;
 
 @Documented
 @Constraint(validatedBy = DateSinceNowValidator.class)

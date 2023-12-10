@@ -48,4 +48,8 @@ public class ReviewController {
     public ApiResponse<ReviewListResponse> getReviewList(@PathVariable Long storeId, Pageable pageable) {
         return ApiResponse.onSuccess(reviewService.getReviewList(storeId, pageable));
     }
+
+    public ApiResponse<ReviewListResponse> getMyReviewList(Pageable pageable) {
+        return null;
+    }
 }

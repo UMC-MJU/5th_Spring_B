@@ -56,4 +56,9 @@ public class ReviewServiceImpl implements ReviewService{
                 reviewEntities.isFirst(), reviewEntities.isLast());
     }
 
+    @Override
+    public ReviewListResponse getMyReviewList(Pageable pageable) {
+        return null;
+    }
+
 }

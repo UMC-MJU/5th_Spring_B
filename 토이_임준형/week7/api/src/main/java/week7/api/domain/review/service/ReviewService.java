@@ -10,4 +10,6 @@ public interface ReviewService {
     ReviewResponse registerReview(ReviewCreateRequest request);
 
     ReviewListResponse getReviewList(Long storeId, Pageable pageable);
+
+    ReviewListResponse getMyReviewList(Pageable pageable);
 }

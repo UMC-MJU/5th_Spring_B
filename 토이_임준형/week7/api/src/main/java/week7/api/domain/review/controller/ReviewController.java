@@ -49,7 +49,32 @@ public class ReviewController {
         return ApiResponse.onSuccess(reviewService.getReviewList(storeId, pageable));
     }
 
+    @Operation(summary = "내가 작성한 리뷰 목록 조회 API",
+            description = "사용자가 작성한 리뷰들의 목록을 조회하는 API입니다. 페이지네이션 기능이 포함되어 있으며, query string으로 page 번호와 size를 지정할 수 있습니다.")
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",
+                    description = "OK, 성공적으로 리뷰 목록을 불러왔습니다.",
+                    content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH003",
+                    description = "Access 토큰이 필요합니다.",
+                    content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH004",
+                    description = "Access 토큰이 만료되었습니다.",
+                    content = @Content(schema = @Schema(implementation = ApiResponse.class))),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "AUTH006",
+                    description = "Access 토큰의 형식이 올바르지 않습니다.",
+                    content = @Content(schema = @Schema(implementation = ApiResponse.class)))
+    })
+    @Parameters({
+            @Parameter(name = "page",
+                    description = "페이지 번호 (0부터 시작)",
+                    example = "0"),
+            @Parameter(name = "size",
+                    description = "한 페이지에 표시할 리뷰의 수",
+                    example = "10")
+    })
+    @GetMapping("/myPage/reviews")
     public ApiResponse<ReviewListResponse> getMyReviewList(Pageable pageable) {
-        return null;
+        return ApiResponse.onSuccess(reviewService.getMyReviewList(pageable));
     }
 }

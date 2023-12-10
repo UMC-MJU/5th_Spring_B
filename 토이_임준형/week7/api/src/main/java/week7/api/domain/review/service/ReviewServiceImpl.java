@@ -58,7 +58,18 @@ public class ReviewServiceImpl implements ReviewService{
 
     @Override
     public ReviewListResponse getMyReviewList(Pageable pageable) {
-        return null;
+        // Member currentMember = SecurityContextHolder.getContext().getAuthentication().getMember();
+//        Long memberId = currentMember.getId();
+        Long memberId = 1L;
+        Page<Review> reviewEntities = reviewRepository.findAllByMemberId(memberId, pageable);
+        List<ReviewResponse> reviewResponses = reviewEntities.map(review -> {
+            Store store = review.getStore();
+            return toReviewResponse(review, store);
+        }).toList();
+
+        return toReviewListResponse(reviewResponses,
+                reviewEntities.getTotalPages(), reviewEntities.getTotalElements(),
+                reviewEntities.isFirst(), reviewEntities.isLast());
     }
 
 }

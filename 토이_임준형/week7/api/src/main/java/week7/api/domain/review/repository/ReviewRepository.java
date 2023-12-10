@@ -7,4 +7,5 @@ import week7.api.domain.review.domain.Review;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
     Page<Review> findAllByStoreId(Long storeId, Pageable pageable);
+    Page<Review> findAllByMemberId(Long memberId, Pageable pageable);
 }

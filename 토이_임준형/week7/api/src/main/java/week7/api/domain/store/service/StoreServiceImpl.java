@@ -1,8 +1,11 @@
 package week7.api.domain.store.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import week7.api.domain.domain.Address;
+import week7.api.domain.review.domain.Review;
 import week7.api.domain.review.dto.ReviewCreateRequest;
 import week7.api.domain.store.converter.StoreConverter;
 import week7.api.domain.store.domain.Store;

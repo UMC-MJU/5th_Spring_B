@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import javax.validation.Valid;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +45,7 @@ public class ReviewController {
             @Parameter(name = "storeId", description = "가게의 아이디, path variable 입니다!")
     })
     @GetMapping("{storeId}/reviews")
-    public ApiResponse<ReviewListResponse> getReviewList(@PathVariable Long storeId) {
-        return null;
+    public ApiResponse<ReviewListResponse> getReviewList(@PathVariable Long storeId, Pageable pageable) {
+        return ApiResponse.onSuccess(reviewService.getReviewList(storeId, pageable));
     }
 }

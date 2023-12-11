@@ -32,6 +32,7 @@ public enum ErrorStatus implements BaseErrorCode {
     // STORE
     STORE_CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "STORE_4001", "식당 정보가 없습니다."),
     STORE_INVALID_NAME(HttpStatus.BAD_REQUEST, "STORE_4040", "주소 정보가 잘못 되었습니다."),
+    STORE_NAME_NOT_FOUND(HttpStatus.BAD_REQUEST, "STORE_4042", "식당 이름으로 식당을 찾을 수 없습니다."),
 
     // week 8 assignment
     TEMP_EXCEPTION(HttpStatus.BAD_REQUEST, "TEMP4001", "test");

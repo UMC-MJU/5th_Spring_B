@@ -70,4 +70,10 @@ public class StoreServiceImpl implements StoreService {
                 .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_CATEGORY_NOT_FOUND));
     }
 
+    @Override
+    public Store findStoreByName(String storeName) {
+        return storeRepository.findByName(storeName)
+                .orElseThrow(() -> new StoreHandler(ErrorStatus.STORE_NAME_NOT_FOUND));
+    }
+
 }

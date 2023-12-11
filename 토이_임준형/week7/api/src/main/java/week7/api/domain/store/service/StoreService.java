@@ -11,4 +11,6 @@ public interface StoreService {
     StoreResponse registerStore(StoreCreateRequest request);
 
     Store findStoreById(Long storeId);
+
+    Store findStoreByName(String storeName);
 }

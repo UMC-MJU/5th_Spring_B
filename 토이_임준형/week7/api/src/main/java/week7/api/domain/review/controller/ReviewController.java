@@ -50,7 +50,8 @@ public class ReviewController {
     }
 
     @Operation(summary = "내가 작성한 리뷰 목록 조회 API",
-            description = "사용자가 작성한 리뷰들의 목록을 조회하는 API입니다. 페이지네이션 기능이 포함되어 있으며, query string으로 page 번호와 size를 지정할 수 있습니다.")
+            description = "사용자가 작성한 리뷰들의 목록을 조회하는 API입니다. "
+                    + "페이지네이션 기능이 포함되어 있으며, query string으로 page 번호와 size를 지정할 수 있습니다.")
     @ApiResponses({
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "COMMON200",
                     description = "OK, 성공적으로 리뷰 목록을 불러왔습니다.",

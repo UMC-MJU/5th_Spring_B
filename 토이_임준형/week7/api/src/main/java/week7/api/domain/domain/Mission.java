@@ -25,6 +25,7 @@ public class Mission extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
+    private Long storeId;
 
     @OneToMany(mappedBy = "mission")
     private List<MemberMission> memberMissionList = new ArrayList<>();

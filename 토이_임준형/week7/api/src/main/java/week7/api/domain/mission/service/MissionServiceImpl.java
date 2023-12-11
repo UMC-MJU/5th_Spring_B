@@ -1,6 +1,7 @@
 package week7.api.domain.mission.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -69,6 +70,30 @@ public class MissionServiceImpl implements MissionService {
                 .totalElements(missions.getTotalElements())
                 .isFirst(missions.isFirst())
                 .isLast(missions.isLast())
+                .build();
+    }
+
+    @Override
+    public MissionListResponse getMyMissions(Pageable pageable) {
+
+        Page<MemberMission> memberMissionPages = memberMissionService.findAllByMemberId(pageable);
+        List<MemberMission> memberMissions = memberMissionPages.getContent();
+
+        List<MissionResponse> missionResponses = memberMissions.stream()
+                .map(mission -> MissionResponse.builder()
+                        .memberId(mission.getMember().getId())
+                        .missionId(mission.getId())
+                        .storeId(mission.getMission().getStoreId())
+                        .content(mission.getMission().getContent())
+                        .build())
+                .collect(Collectors.toList());
+
+        return MissionListResponse.builder()
+                .missionResponses(missionResponses)
+                .isFirst(memberMissionPages.isFirst())
+                .isLast(memberMissionPages.isLast())
+                .totalPage(memberMissionPages.getTotalPages())
+                .totalElements(memberMissionPages.getTotalElements())
                 .build();
     }
 }

@@ -8,4 +8,5 @@ import week7.api.domain.domain.Mission;
 
 public interface MissionRepository extends JpaRepository<Mission, Long> {
     Page<Mission> findAllByStoreId(Long storeId, Pageable pageable);
+
 }

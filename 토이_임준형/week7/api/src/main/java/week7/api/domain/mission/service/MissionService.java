@@ -9,4 +9,6 @@ public interface MissionService {
     MissionResponse registerMission(MissionCreateRequest request);
 
     MissionListResponse getMissions(String storeName, Pageable pageable);
+
+    MissionListResponse getMyMissions(Pageable pageable);
 }

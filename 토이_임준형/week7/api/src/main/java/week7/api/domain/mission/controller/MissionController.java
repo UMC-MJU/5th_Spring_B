@@ -31,4 +31,9 @@ public class MissionController {
     public ApiResponse<MissionListResponse> getMissions(@RequestParam(required = false) String storeName, Pageable pageable) {
         return ApiResponse.onSuccess(missionService.getMissions(storeName, pageable));
     }
+
+    @GetMapping("/myPage/missions")
+    public ApiResponse<MissionListResponse> getMyMissions(Pageable pageable) {
+        return ApiResponse.onSuccess(missionService.getMyMissions(pageable));
+    }
 }
